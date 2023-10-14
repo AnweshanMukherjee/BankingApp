@@ -1,4 +1,5 @@
 package Banking;
+
 import java.sql.*;
 import java.util.Scanner;
 
@@ -9,8 +10,7 @@ public class AccountManager {
         this.connection = connection;
         this.scanner = scanner;
     }
-
-
+    
     public void credit_money(long account_number)throws SQLException {
         scanner.nextLine();
         System.out.print("Enter Amount: ");
