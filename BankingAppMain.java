@@ -108,7 +108,8 @@ public class BankingAppMain {
                         break;
                 }
             }
-        }catch (SQLException e){
+        }
+        catch (SQLException e){
             e.printStackTrace();
         }
     }
