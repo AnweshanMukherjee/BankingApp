@@ -67,7 +67,7 @@ public class User {
         return null;
     }
 
-    public boolean user_exist(String email){
+    public boolean userExist(String email){
         String query = "SELECT * FROM user WHERE email = ?";
         try{
             PreparedStatement preparedStatement = connection.prepareStatement(query);
