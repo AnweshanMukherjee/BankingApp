@@ -12,7 +12,7 @@ public class Accounts {
 
     }
     
-    public long open_account(String email){
+    public long openAccount(String email){
         if(!account_exist(email)) {
             String open_account_query = "INSERT INTO Accounts(account_number, full_name, email, balance, security_pin) VALUES(?, ?, ?, ?, ?)";
             scanner.nextLine();
@@ -45,7 +45,7 @@ public class Accounts {
 
     }
 
-    public long getAccount_number(String email) {
+    public long getAccountNumber(String email) {
         String query = "SELECT account_number from Accounts WHERE email = ?";
         try{
             PreparedStatement preparedStatement = connection.prepareStatement(query);
@@ -76,7 +76,7 @@ public class Accounts {
         return 10000100;
     }
     
-    public boolean account_exist(String email){
+    public boolean accountExist(String email){
         String query = "SELECT account_number from Accounts WHERE email = ?";
         try{
             PreparedStatement preparedStatement = connection.prepareStatement(query);
