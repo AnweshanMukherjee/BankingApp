@@ -11,10 +11,7 @@ public class Accounts {
         this.scanner = scanner;
 
     }
-
-
-
-
+    
     public long open_account(String email){
         if(!account_exist(email)) {
             String open_account_query = "INSERT INTO Accounts(account_number, full_name, email, balance, security_pin) VALUES(?, ?, ?, ?, ?)";
@@ -62,9 +59,7 @@ public class Accounts {
         }
         throw new RuntimeException("Account Number Doesn't Exist!");
     }
-
-
-
+    
     private long generateAccountNumber() {
         try {
             Statement statement = connection.createStatement();
@@ -80,7 +75,7 @@ public class Accounts {
         }
         return 10000100;
     }
-
+    
     public boolean account_exist(String email){
         String query = "SELECT account_number from Accounts WHERE email = ?";
         try{
