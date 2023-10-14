@@ -3,7 +3,7 @@ package Banking;
 import java.sql.*;
 import java.util.Scanner;
 
-public class BankingApp {
+public class BankingAppMain {
     // Credentials
     private static final String url = "jdbc:mysql://localhost:3306/pwc";
     private static final String username = "root";
