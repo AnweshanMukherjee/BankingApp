@@ -4,16 +4,21 @@ import java.sql.*;
 import java.util.Scanner;
 
 public class BankingApp {
+    // Credentials
     private static final String url = "jdbc:mysql://localhost:3306/pwc";
     private static final String username = "root";
     private static final String password = "root";
 
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
+
+        // Connection
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-        }catch (ClassNotFoundException e){
+        }
+        catch (ClassNotFoundException e){
             System.out.println(e.getMessage());
         }
+        
         try{
             Connection connection = DriverManager.getConnection(url, username, password);
             Scanner scanner =  new Scanner(System.in);
@@ -25,6 +30,7 @@ public class BankingApp {
             long account_number;
 
             while(true){
+                // Choice
                 System.out.println("BANKING PORTAL");
                 System.out.println();
                 System.out.println("1. Register");
@@ -33,11 +39,14 @@ public class BankingApp {
                 System.out.println("Enter your choice: ");
                 int choice1 = scanner.nextInt();
                 switch (choice1){
+                    // User registation
                     case 1:
                         user.register();
                         break;
+                    // User login
                     case 2:
                         email = user.login();
+                        // Email not null validation
                         if(email!=null){
                             System.out.println();
                             System.out.println("User Logged In!");
@@ -57,6 +66,7 @@ public class BankingApp {
                             account_number = accounts.getAccount_number(email);
                             int choice2 = 0;
                             while (choice2 != 5) {
+                                // Next set of choices
                                 System.out.println();
                                 System.out.println("1. Debit Money");
                                 System.out.println("2. Credit Money");
@@ -67,13 +77,13 @@ public class BankingApp {
                                 choice2 = scanner.nextInt();
                                 switch (choice2) {
                                     case 1:
-                                        accountManager.debit_money(account_number);
+                                        accountManager.debitMoney(account_number);
                                         break;
                                     case 2:
-                                        accountManager.credit_money(account_number);
+                                        accountManager.creditMoney(account_number);
                                         break;
                                     case 3:
-                                        accountManager.transfer_money(account_number);
+                                        accountManager.transferMoney(account_number);
                                         break;
                                     case 4:
                                         accountManager.getBalance(account_number);
