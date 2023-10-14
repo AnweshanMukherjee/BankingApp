@@ -50,12 +50,12 @@ public class BankingApp {
                         if(email!=null){
                             System.out.println();
                             System.out.println("User Logged In!");
-                            if(!accounts.account_exist(email)){
+                            if(!accounts.accountExist(email)){
                                 System.out.println();
                                 System.out.println("1. Open a new Bank Account");
                                 System.out.println("2. Exit");
                                 if(scanner.nextInt() == 1) {
-                                    account_number = accounts.open_account(email);
+                                    account_number = accounts.openAccount(email);
                                     System.out.println("Account Created Successfully");
                                     System.out.println("Your Account Number is: " + account_number);
                                 }else{
@@ -63,7 +63,7 @@ public class BankingApp {
                                 }
 
                             }
-                            account_number = accounts.getAccount_number(email);
+                            account_number = accounts.getAccountNumber(email);
                             int choice2 = 0;
                             while (choice2 != 5) {
                                 // Next set of choices
